@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>
+        {{_shapeName | titleCase}} Types
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Close</span>
+          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row [hidden]="_shapeName !== 'pipe'">
+            <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                <img src="assets/js/mxgraph/images/svg/pipe.svg" alt="app logo" (click)="onSelection('Pipe')" />
+                <img src="assets/js/mxgraph/images/svg/Insulated_pipe.svg" alt="app logo" (click)="onSelection('Insulated Pipe')" />
+                <img src="assets/js/mxgraph/images/svg/Jacketed_pipe.svg" alt="app logo" (click)="onSelection('Jacketed Pipe')" />
+                <img src="assets/js/mxgraph/images/svg/Flexible_pipe.svg" alt="app logo" (click)="onSelection('Flexible Pipe')" />
+                <img src="assets/js/mxgraph/images/svg/Cooled_or_heated_pipe.svg" alt="app logo" (click)="onSelection('Cooled or Heated Pipe')" />
+            </ion-col>
+        </ion-row>
+        <ion-row [hidden]="_shapeName !== 'valve'"> 
+            <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                <img src="assets/js/mxgraph/images/svg/Valve.svg" alt="app logo" (click)="onSelection('Valve')" />
+                <img src="assets/js/mxgraph/images/svg/Ball_valve.svg" alt="app logo" (click)="onSelection('Ball Valve')" />
+                <!-- <img src="assets/js/mxgraph/images/svg/Control_valve.svg" alt="app logo" (click)="onSelection('Control Valve')" /> -->
+                <img src="assets/js/mxgraph/images/svg/Diaphragm_valve.svg" alt="app logo" (click)="onSelection('Diaphragm Valve')" />
+                <img src="assets/js/mxgraph/images/svg/Manual_valve.svg" alt="app logo" (click)="onSelection('Manual Valve')" />
+                <!-- <img src="assets/js/mxgraph/images/svg/Needle_valve.svg" alt="app logo" (click)="onSelection('Needle Valve')" />                 -->
+            </ion-col>
+        </ion-row>
+        <ion-row [hidden]="_shapeName !== 'elbow'"> 
+            <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                <img src="assets/js/mxgraph/images/svg/Cap.svg" alt="app logo" (click)="onSelection('Cap')" />
+                <img src="assets/js/mxgraph/images/svg/Double_flange.svg" alt="app logo" (click)="onSelection('Double Flange')" />
+                <img src="assets/js/mxgraph/images/svg/Flange_t.svg" alt="app logo" (click)="onSelection('Flange T')" />
+                <img src="assets/js/mxgraph/images/svg/Flange.svg" alt="app logo" (click)="onSelection('Flange')" />
+                <img src="assets/js/mxgraph/images/svg/Flange_l.svg" alt="app logo" (click)="onSelection('Flange L')" />                
+            </ion-col>
+        </ion-row>    
+        <ion-row [hidden]="_shapeName !== 'label'"> 
+            <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                <img src="assets/js/mxgraph/images/obj/Cloud.png" alt="app logo" (click)="onSelection('Cloud Callout')" />
+                <img src="assets/js/mxgraph/images/obj/Rectangle.png" alt="app logo" (click)="onSelection('Rectangular Callout')" />             
+            </ion-col>
+        </ion-row>              
+      </ion-grid>
+</ion-content>

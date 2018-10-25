@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Data Sheet</ion-title>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goSaveDataSheet($event)">
+        <ion-icon name="checkbox-outline"></ion-icon>
+        Save
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <!-- GENERAL INPUT -->
+    <ion-item-divider color="dark">General</ion-item-divider>
+    <ion-item>
+      <ion-label color="primary">Report Name</ion-label>
+      <ion-input text-right type="text" readonly="true" [ngModel]="_reportName | uppercase" readonly="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Inspection Date</ion-label>
+      <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="_dateTime"></ion-datetime>
+    </ion-item>    
+    <ion-item>
+      <ion-label color="primary">Asset</ion-label>
+      <ion-input text-right type="text" [ngModel]="_ds.asset | uppercase" (ngModelChange)="_ds.asset=$event"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" class="fixedLabel">Field/Platform</ion-label>
+      <ion-input text-right type="text" [ngModel]="_ds.field | uppercase" (ngModelChange)="_ds.field=$event"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" class="fixedLabel" >RBI Criticality Rating</ion-label>
+      <ion-input text-right type="text" [ngModel]="_ds.critical_rating" (ionFocus)="goSelectDropdown(0)"></ion-input>
+    </ion-item>    
+    <!-- BACKGROUND INFORMATION INPUT -->
+    <!-- <ion-list-header>Background Information</ion-list-header> -->
+    <ion-item-divider color="dark">Background Information</ion-item-divider>
+    <ion-item>
+      <ion-label color="primary">Circuit ID</ion-label>
+      <ion-input text-right type="text" [ngModel]="_ds.circuit_id | uppercase" (ngModelChange)="_ds.circuit_id=$event"></ion-input>
+    </ion-item>     
+    <ion-item>
+      <ion-label color="primary">Line No.</ion-label>
+      <ion-input text-right type="text" [ngModel]="_ds.line_no | uppercase" (ngModelChange)="_ds.line_no=$event"></ion-input>
+    </ion-item>     
+    <ion-item>
+      <ion-label color="primary">Insulated</ion-label>
+      <ion-input text-right type="text" [ngModel]="_ds.insulated" (ionFocus)="goSelectDropdown(1)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Metal Temp.</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.metal_temp" (ngModelChange)="_ds.metal_temp=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Operating Pressure</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.operating_pressure" (ngModelChange)="_ds.operating_pressure=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Operating Temperature</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.operating_temperature" (ngModelChange)="_ds.operating_temperature=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Dead Legs</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.dead_legs" (ngModelChange)="_ds.dead_legs=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Long Horizontal Runs</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.long_horizontal_runs" (ngModelChange)="_ds.long_horizontal_runs=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Erosion Zones</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.erosion_zones" (ngModelChange)="_ds.erosion_zones=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Elbows</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.elbows" (ngModelChange)="_ds.elbows=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Tees</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.tees" (ngModelChange)="_ds.tees=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Reducers</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.reducers" (ngModelChange)="_ds.reducers=$event"></ion-input>
+    </ion-item> 
+    <!-- NDE INSPECTION INPUT -->
+    <!-- <ion-list-header>NDE Inspection Data</ion-list-header> -->
+    <ion-item-divider color="dark">NDE Inspection Data</ion-item-divider>    
+    <ion-item>
+      <ion-label color="primary">Nominal Thickness</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.nominal_thickness" (ngModelChange)="_ds.nominal_thickness=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Insp. Location/Ref Pt</ion-label>
+      <ion-input text-right type="text" readonly="true" [ngModel]="_locationRef | uppercase" (ngModelChange)="_locationRef=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Min</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.thickness_min" (ngModelChange)="_ds.thickness_min=$event"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label color="primary">Max</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.thickness_max" (ngModelChange)="_ds.thickness_max=$event"></ion-input>
+    </ion-item> 
+    <!-- EXTERNAL METAL LOSS INPUT -->
+    <!-- <ion-list-header>External Metal Loss</ion-list-header> -->
+    <ion-item-divider color="dark">External Metal Loss</ion-item-divider>
+    <ion-item>
+      <ion-label color="primary">Length (mm)</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.external_metal_loss_length" (ngModelChange)="_ds.external_metal_loss_length=$event"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Width (mm)</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.external_metal_loss_width" (ngModelChange)="_ds.external_metal_loss_width=$event"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Depth (mm)</ion-label>
+      <ion-input text-right type="number" [ngModel]="_ds.external_metal_loss_depth" (ngModelChange)="_ds.external_metal_loss_depth=$event"></ion-input>
+    </ion-item>
+    <!-- PAINTING AND COATING INPUT -->
+    <!-- <ion-list-header>Painting & Coating Assessment</ion-list-header> -->
+    <ion-item-divider color="dark">Painting & Coating Assessment</ion-item-divider>
+    <ion-item>
+      <ion-label color="primary">DFT</ion-label>
+      <ion-input text-right type="text" [ngModel]="_ds.dft" (ionFocus)="goSelectDropdown(2)"></ion-input>
+    </ion-item>    
+  </ion-list>
+</ion-content>

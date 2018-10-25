@@ -1,0 +1,10 @@
+// Solve issues with FONTS
+// https://stackoverflow.com/questions/49186095/ionic-error-in-declare-styleable-fontfamilyfont-unable-to-find-attribute-and
+// https://stackoverflow.com/questions/49162538/running-cordova-build-android-unable-to-find-attribute-androidfontvariation
+
+// Copy to platforms/android
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-v4:27.1.0'
+    }
+}

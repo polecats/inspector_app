@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="outer-content">
+  <div padding-top text-center *ngIf="_profile.username">
+    <img [src]="_photo | safeHtml" class="custom-avatar">
+    <h2>{{_profile.username}}</h2>
+    <ion-list inset>
+      <button ion-item (click)="onUpdatePicture()">Update Picture</button>
+      <button ion-item (click)="onChangeName()">Change Name: {{_profile.name}}</button>
+      <button ion-item (click)="onChangePosition()">Change Position: {{_profile.position}}</button>
+      <button ion-item (click)="onChangeCompany()">Change Company: {{_profile.company}}</button>
+      <button ion-item (click)="onChangePassword()">Change Password: {{_profile.password | textAsterisk}}</button>
+      <button ion-button icon-left block color="primary" (click)="onUpdateServer()">
+        <ion-icon name="cloud-upload"></ion-icon>
+        Update Online Account
+      </button>
+      <button ion-button icon-left block color="secondary" (click)="onLogout()">
+        <ion-icon name="log-out"></ion-icon>
+        Logout
+      </button>
+    </ion-list>
+
+  </div>  
+</ion-content>

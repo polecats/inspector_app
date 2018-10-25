@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Diagram</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="saveDiagram($event)">
+        <ion-icon name="checkbox-outline"></ion-icon>
+        {{_cmdTitle}}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header> 
+<ion-content>
+  <div id="graph"
+    style="position:relative;overflow:hidden;background:url('assets/js/mxgraph/images/isogrid.png');cursor:default;"
+    [style.width]="_styleWidth"
+    [style.height]="_styleHeight"    
+  >
+    <div text-center id="splash" style="padding-top:230px;">
+      <img src="assets/js/mxgraph/images/ajax-loader.gif">
+    </div>
+  </div>
+  <!-- The Fab menu bar -->
+  <ion-fab left bottom>
+    <button ion-fab color="light">
+      <ion-icon name="construct"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="execute('zoomIn')">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+      <button ion-fab (click)="execute('zoomOut')">
+        <ion-icon name="remove-circle"></ion-icon>
+      </button>
+      <button ion-fab (click)="execute('fit')">
+        <ion-icon name="resize"></ion-icon>
+      </button>      
+      <button ion-fab (click)="execute('actualSize')">
+        <ion-icon name="expand"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-fab bottom right #fab>
+    <button ion-fab><ion-icon name="cube"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="danger" (click)="execute('delete', fab)">
+        <ion-label>Remove</ion-label>
+        <ion-icon name="trash"></ion-icon>
+      </button>      
+      <!-- <button ion-fab color="secondary" (click)="dropModel('pipe', fab)">
+        <ion-label>Pipe</ion-label>
+        <ion-icon name="git-branch"></ion-icon>
+      </button> -->
+      <button ion-fab color="google" (click)="dropModel('elbow', fab)">
+        <ion-label>Elbow</ion-label>
+        <ion-icon name="git-commit"></ion-icon>
+      </button>
+      <button ion-fab color="twitter" (click)="dropModel('valve', fab)">
+        <ion-label>Valve</ion-label>
+        <ion-icon name="help-buoy"></ion-icon>
+      </button>
+      <button ion-fab color="facebook" (click)="dropModel('label', fab)">
+        <ion-label>Label</ion-label>
+        <ion-icon name="text"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
+<!-- <ion-footer no-padding style="margin:0rem 0rem!Important;">
+  <div text-center padding>
+    <button ion-button icon-left round color="secondary" onclick="javascript:invokeGraph();">
+        <ion-icon name="add-circle"></ion-icon>
+        Trigger
+    </button>
+  </div>      
+</ion-footer> -->

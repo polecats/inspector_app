@@ -1,0 +1,9 @@
+{
+    "lib": {
+        "www": {
+            "id": "com.acme.pipeinspection",
+            "version": "1.0.0",
+            "uri": ""
+        }
+    }
+}

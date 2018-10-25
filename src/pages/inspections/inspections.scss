@@ -1,0 +1,56 @@
+inspections-record {
+    $categories: (
+        ionic: color($colors, primary),
+        angular: #AC282B,
+        communication: #8E8D93,
+        tooling: #FE4C52,
+        services: #FD8B2D,
+        design: #FED035,
+        workshop: #69BB7B,
+        food: #3BC7C4,
+        documentation: #B16BE3,
+        navigation: #6600CC,
+    );
+    
+    @function auxiliary-categories() {
+      @return map-remove($categories);
+    }
+
+    @each $track, $value in auxiliary-categories() {
+        ion-item-sliding[track=#{$track}] ion-label {
+            border-left: 2px solid $value;
+            padding-left: 10px;
+        }
+    }
+
+    // To add label to the Fabs
+    .fab {
+        contain: layout;
+    }
+    
+    button[ion-fab] {
+        overflow: visible;
+        position: relative;
+
+        ion-label {
+            position: absolute;
+            top: -8px;
+            right: 40px;
+
+            color: white;
+            background-color: rgba(0,0,0,0.7);
+            line-height: 24px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+    }    
+
+    // Alternating list colors
+    .even { 
+        color: red; 
+    }
+  
+    .odd { 
+        color: green; 
+    }
+}

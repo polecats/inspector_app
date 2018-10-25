@@ -1,0 +1,38 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>Settings</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Gateway API</ion-label>
+      <!-- <ion-input type="text" (ionChange)="apiLinkFocus()" [(ngModel)]="apiLink"></ion-input> -->
+      <ion-input type="text" [(ngModel)]="apiLink"></ion-input>
+    </ion-item>
+  
+    <!-- <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item> -->
+  
+  </ion-list>
+
+  <div padding>
+    <button ion-button icon-left block color="primary" (click)="onSave()" type="submit">
+      <ion-icon name="checkbox-outline"></ion-icon>
+      Save Settings
+    </button>
+  <!-- </div>   -->
+  <!-- <div padding> -->
+    <button ion-button icon-left block color="dark" (click)="onSync()" type="submit">
+      <ion-icon name="cloud-download"></ion-icon>
+      Load Offline Data
+    </button>
+  </div>  
+</ion-content>

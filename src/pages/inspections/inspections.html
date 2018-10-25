@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<!-- <ion-title>Visual Inspection</ion-title> -->
+    <ion-segment [(ngModel)]="segment" (ionChange)="searchInspections()">
+      <ion-segment-button value="onlineInsp">
+        Online
+      </ion-segment-button>
+      <ion-segment-button value="localInsp">
+        Local
+      </ion-segment-button>
+    </ion-segment>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="presentFilter()">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+  <!-- Search Bar -->
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   (ionInput)="searchInspections()"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- Pull down to refresh list action -->
+  <ion-refresher (ionRefresh)="goRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- The list grid -->
+  <div [ngSwitch]="segment">
+    <ion-list #onlineList *ngSwitchCase="'onlineInsp'">
+      <ion-item-sliding #slidingItem *ngFor="let insp of shownOnlineInspections"> <!-- Slider list -->
+        <ion-item>
+          <h2>Name: {{insp.name}}</h2>
+          <h3>Created: {{insp.created | unixTimeDate}}</h3>
+          <!-- <h3>Last Update: {{insp.modified | unixTimeDate}}</h3> -->
+          <p>Record id: {{insp.id}}</p>
+        </ion-item>        
+        <ion-item-options>  <!-- Slider list option -->
+          <button ion-button color="facebook" (click)="goDownloadOnline(slidingItem, insp)">
+            <ion-icon name="cloud-download"></ion-icon>
+            Download
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <!-- Hide when the list is zero -->
+      <ion-list-header [hidden]="getOnlineInspectionCount() > 0">
+          No Online Records Found
+      </ion-list-header>         
+    </ion-list>
+    <ion-list #localList *ngSwitchCase="'localInsp'">    
+      <ion-item-sliding #slidingItem *ngFor="let insp of shownLocalInspections"> <!-- Slider list -->
+        <ion-item>
+          <h2>Name: {{insp.name}}</h2>
+          <h3>Created: {{insp.created | unixTimeDate}}</h3>
+          <!-- <h3>Last Update: {{insp.modified | unixTimeDate}}</h3> -->
+          <p>Record id: {{insp.id}}</p>
+        </ion-item>            
+        <ion-item-options>  <!-- Slider list option -->
+          <button ion-button color="secondary" (click)="goEditLocal(slidingItem, insp)">
+            <ion-icon name="create"></ion-icon>
+            Edit
+          </button>            
+          <button ion-button color="facebook" (click)="goUploadLocal(slidingItem, insp)">
+            <ion-icon name="cloud-upload"></ion-icon>
+            Upload
+          </button>
+          <button ion-button color="danger" (click)="goDeleteLocal(slidingItem, insp)">
+            <ion-icon name="trash"></ion-icon>
+            Delete
+          </button>            
+        </ion-item-options>
+      </ion-item-sliding>
+      <!-- Hide when the list is zero -->
+      <ion-list-header [hidden]="getLocalInspectionCount() > 0">
+          No Local Records Found
+      </ion-list-header>    
+    </ion-list>    
+  </div>
+  <!-- The Fab menu bar -->
+  <ion-fab bottom right #fab>
+    <button ion-fab><ion-icon name="list"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="secondary" (click)="goCreateLocalInspection(fab)"><ion-label>New Inspection</ion-label><ion-icon name="document"></ion-icon></button>
+      <!-- <button ion-fab color="google" (click)="openSocial('Google+', fab)"><ion-icon name="logo-googleplus"></ion-icon></button>
+      <button ion-fab color="twitter" (click)="openSocial('Twitter', fab)"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab color="facebook" (click)="openSocial('Facebook', fab)"><ion-icon name="logo-facebook"></ion-icon></button> -->
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

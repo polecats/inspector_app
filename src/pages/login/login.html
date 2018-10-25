@@ -1,0 +1,38 @@
+<ion-content padding no-bounce>
+  <!--<div ion-fixed class="fullscreen">-->
+    <!-- <ion-icon name="arrow-back" color="light" (click)="doBack()"></ion-icon> -->
+    <!-- <form [formGroup]="form"> -->
+		<form #loginForm="ngForm">	
+        <ion-list no-lines>
+          <!-- <div class="logo">
+            <img src="assets/img/ionic-logo-white.svg" alt="app logo"> 
+          </div>        -->
+          <h1 text-center ion-text class="title" color="light">InsPipe</h1>
+          <p text-center class="subtitle">Pipe Inspection App</p>
+          <ion-item>                
+            <ion-icon name="person" item-left></ion-icon>
+            <!-- <ion-input formControlName="email" type="email" placeholder="Email Address"> </ion-input>   -->
+            <ion-input [(ngModel)]="_login.username" name="username" type="text" #username="ngModel" placeholder="Username" spellcheck="false" autocapitalize="off" required>
+            </ion-input>              
+          </ion-item>
+          <ion-item>
+            <ion-icon name="lock" item-left></ion-icon>
+            <!-- <ion-input formControlName="password" type="password" placeholder="Password"></ion-input> -->
+            <ion-input [(ngModel)]="_login.password" name="password" type="password" #password="ngModel" placeholder="Password" required></ion-input>
+          </ion-item>
+          <button ion-button color="light" (click)="onLogin(loginForm)" block outline>LOGIN</button>
+          <p ion-text color="light" text-center>
+            Don't have an account?
+            <a ion-text color="light" (click)="onSignup()">Signup.</a>
+          </p>
+          <!-- <button ion-button color="light" (click)="doForgotPassword()" clear block>Forgot Password?</button> -->
+          <!-- <button ion-item color="primary" (click)="openSettings()" block>
+            <ion-icon name="settings"></ion-icon>
+          </button> -->
+          <button ion-button icon-only small (click)="openSettings()">
+            <ion-icon name="settings"></ion-icon>
+          </button>
+        </ion-list>
+    </form>
+  <!--</div>-->
+</ion-content>

@@ -1,0 +1,19 @@
+{
+    "inspections": [
+        {
+            "id": "288fe007ac0c48e2aa17ccf64be11e19",
+            "name": "Test Inspections",
+            "timestamp": 1522639036
+        },
+        {
+            "id": "1181a0a857eb4c5f9b6b045c0a350626",
+            "name": "Test Inspections 2",
+            "timestamp": 1522685931
+        },
+        {
+            "id": "0b096cdd412a460db32d3957a0c2ddc9",
+            "name": "Test Inspections 3",
+            "timestamp": 1522685984
+        }
+    ]
+}

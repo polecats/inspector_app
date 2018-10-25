@@ -1,0 +1,108 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{viewTitle}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="saveObservation($event)">
+                <ion-icon name="{{iconName}}"></ion-icon>
+                {{cmdTitle}}
+            </button>
+        </ion-buttons>        
+    </ion-navbar>
+    <ion-toolbar no-border-top color="primary">
+        <ion-segment [(ngModel)]="segment">
+            <ion-segment-button value="general">
+                ID, Loc, Photo
+            </ion-segment-button>
+            <ion-segment-button value="findings">
+                Findings
+            </ion-segment-button>
+            <ion-segment-button value="recommends">
+                Recommendations
+            </ion-segment-button>        
+        </ion-segment>   
+    </ion-toolbar>    
+</ion-header>
+<ion-content class="cards-bg">
+    <div [ngSwitch]="segment">
+        <div #idList *ngSwitchCase="'general'">
+            <ion-card class="cards-list">
+                <ion-card-header>Details</ion-card-header>
+                <ion-list>
+                    <ion-item>
+                        <ion-label color="primary" class="fixedLabel">Observation Type</ion-label>
+                        <ion-input text-right type="text" readonly="true" placeholder="Click to edit" [ngModel]="_observation.identifier" (click)="goSelectIdentifiers()"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label color="primary" class="fixedLabel">Location</ion-label>
+                        <ion-input text-right type="text" placeholder="Enter location" [ngModel]="_observation.location | uppercase" (ngModelChange)="_observation.location=$event"></ion-input>
+                    </ion-item>   
+                </ion-list>  
+            </ion-card>
+            <ion-card class="cards-list" [hidden]="getPhotoCount() < 1">
+                <ion-card-header>Photos</ion-card-header>
+                <ion-card-content>
+                    <!-- <ion-list> -->
+                        <ion-item *ngFor="let photo of _photos">
+                            <img [hidden]="photo.isDeleted" [src]="(photo.encoding + photo.base64) | safeHtml">
+                            <ion-item>
+                                <button [hidden]="photo.isDeleted" item-right ion-button icon-left clear small color="danger" (click)="removePhoto(photo.id)">
+                                    <ion-icon name="trash"></ion-icon>
+                                    <div>Remove</div>
+                                </button>  
+                            </ion-item>
+                        </ion-item>
+                    <!-- </ion-list> -->
+                </ion-card-content>      
+            </ion-card>            
+        </div>
+        <div #findingsList *ngSwitchCase="'findings'">
+            <ion-card *ngFor="let find of _findings">
+                <ion-card-content [hidden]="find.isDeleted">{{find.value}}</ion-card-content>
+                <ion-item>
+                    <button [hidden]="find.isDeleted" item-right ion-button icon-left clear small color="secondary" (click)="editFinding(find.id)">
+                        <ion-icon name="create"></ion-icon>
+                        <div>Edit</div>
+                    </button>  
+                    <button [hidden]="find.isDeleted" item-right ion-button icon-left clear small color="danger" (click)="removeFinding(find.id)">
+                        <ion-icon name="trash"></ion-icon>
+                        <div>Remove</div>
+                    </button>      
+                </ion-item>           
+            </ion-card>
+        </div>
+        <div #recommendList *ngSwitchCase="'recommends'">
+            <ion-card *ngFor="let recommend of _recommendations">
+                <ion-card-content [hidden]="recommend.isDeleted">{{recommend.value}}</ion-card-content>
+                <ion-item>
+                    <button [hidden]="recommend.isDeleted" item-right ion-button icon-left clear small color="secondary" (click)="editRecommendation(recommend.id)">
+                        <ion-icon name="create"></ion-icon>
+                        <div>Edit</div>
+                    </button>  
+                    <button [hidden]="recommend.isDeleted" item-right ion-button icon-left clear small color="danger" (click)="removeRecommendation(recommend.id)">
+                        <ion-icon name="trash"></ion-icon>
+                        <div>Remove</div>
+                    </button>  
+                </ion-item>
+            </ion-card>
+        </div>              
+    </div>
+</ion-content>
+<ion-footer no-padding style="margin:0rem 0rem!Important;">
+    <div text-center padding>
+        <button [hidden]="segment !== 'general'" ion-button icon-left round color="secondary" (click)="onPicture()" type="submit">
+            <ion-icon name="add-circle"></ion-icon>
+            Add Photo
+        </button>
+        <button [hidden]="segment !== 'findings'" ion-button icon-left round color="secondary" (click)="onFindings()" type="submit">
+            <ion-icon name="add-circle"></ion-icon>
+            Add Finding
+        </button>
+        <button [hidden]="segment !== 'recommends'" ion-button icon-left round color="secondary" (click)="onRecommendation()" type="submit">
+            <ion-icon name="add-circle"></ion-icon>
+            Add Recommendation
+        </button>                
+    </div>      
+</ion-footer>

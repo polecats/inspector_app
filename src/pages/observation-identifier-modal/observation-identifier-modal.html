@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>
+        Observation Types
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Close</span>
+          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-list-header color="dark">General</ion-list-header>
+        <ion-item *ngFor="let item of _generalIds">
+            <ion-label>{{item.lookup.name}}</ion-label>
+            <ion-checkbox [checked]="item.isChecked" (ionChange)="updateGeneral(item.id)"></ion-checkbox>            
+            <ion-note item-end>{{item.lookup.value}}</ion-note>
+        </ion-item>
+        <ion-list-header color="dark">Support</ion-list-header>
+        <ion-item *ngFor="let item of _supportIds">
+            <ion-label>{{item.lookup.name}}</ion-label>
+            <ion-checkbox [checked]="item.isChecked" (ionChange)="updateSupport(item.id)"></ion-checkbox>            
+            <ion-note item-end>{{item.lookup.value}}</ion-note>
+        </ion-item>
+        <ion-list-header color="dark">Connection</ion-list-header>
+        <ion-item *ngFor="let item of _connectionIds">
+            <ion-label>{{item.lookup.name}}</ion-label>
+            <ion-checkbox [checked]="item.isChecked" (ionChange)="updateConnection(item.id)"></ion-checkbox>            
+            <ion-note item-end>{{item.lookup.value}}</ion-note>
+        </ion-item>
+        <ion-list-header color="dark">Insulation</ion-list-header>
+        <ion-item *ngFor="let item of _insulationIds">
+            <ion-label>{{item.lookup.name}}</ion-label>
+            <ion-checkbox [checked]="item.isChecked" (ionChange)="updateInsulation(item.id)"></ion-checkbox>            
+            <ion-note item-end>{{item.lookup.value}}</ion-note>
+        </ion-item> 
+    </ion-list>
+</ion-content>

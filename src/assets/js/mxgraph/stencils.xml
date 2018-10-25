@@ -1,0 +1,238 @@
+<shapes>
+	<shape aspect="variable" h="20" name="Cap" strokewidth="inherit" w="10">
+		<connections>
+    		<constraint name="W" perimeter="0" x="0" y="0.5"/>
+  		</connections>
+		<background>
+			<path>
+				<move x="0" y="0"/>
+				<arc large-arc-flag="0" rx="10" ry="10" sweep-flag="1" x="0" x-axis-rotation="0" y="20"/>
+				<close/>
+			</path>
+		</background>
+		<foreground>
+			<fillstroke/>
+		</foreground>
+	</shape>
+	<shape aspect="variable" h="20" name="Double Flange" strokewidth="inherit" w="5">
+		<connections>
+			<constraint name="W" perimeter="0" x="0.1" y="0.5"/>
+			<constraint name="E" perimeter="0" x="0.9" y="0.5"/>
+		</connections>
+		<background>
+			<path>
+			<move x="0.5" y="0"/>
+			<line x="0.5" y="20"/>
+			<move x="4.5" y="0"/>
+			<line x="4.5" y="20"/>
+			</path>
+		</background>
+		<foreground>
+			<stroke/>
+		</foreground>
+	</shape>
+	<shape aspect="variable" h="20" name="Flange T" strokewidth="inherit" w="8.5">
+		<connections>
+    		<constraint name="W" perimeter="0" x="0" y="0.5"/>
+    		<constraint name="S" perimeter="0" x="1" y="1"/>
+    		<constraint name="N" perimeter="0" x="1" y="0"/>
+		</connections>
+		<background>
+			<path>
+			<move x="0" y="10"/>
+			<line x="8.5" y="10"/>
+			<move x="8.5" y="0"/>
+			<line x="8.5" y="20"/>
+			</path>
+		</background>
+		<foreground>
+			<stroke/>
+		</foreground>
+	</shape>
+	<shape aspect="variable" h="20" name="Flange L" strokewidth="inherit" w="20">
+		<connections>
+			<constraint name="W" perimeter="0" x="0" y="1"/>
+			<constraint name="N" perimeter="0" x="1" y="0"/>
+		</connections>
+		<background>
+			<path>
+			<move x="0" y="20"/>
+			<line x="20" y="20"/>
+			<move x="20" y="0"/>
+			<line x="20" y="20"/>
+			</path>
+		</background>
+		<foreground>
+			<stroke/>
+		</foreground>
+	</shape>
+	<shape aspect="variable" h="20" name="Flange" strokewidth="inherit" w="5">
+		<connections>
+			<constraint name="W" perimeter="0" x="0.5" y="0.5"/>
+		</connections>
+		<background>
+			<path>
+			<move x="2.5" y="0"/>
+			<line x="2.5" y="20"/>
+			</path>
+		</background>
+		<foreground>
+			<stroke/>
+		</foreground>
+	</shape>
+	<shape aspect="variable" h="60" name="Ball Valve" strokewidth="inherit" w="98">
+		<connections>
+			<!-- <constraint name="N" perimeter="0" x="0.5" y="0.165"/> -->
+			<!-- <constraint name="S" perimeter="0" x="0.5" y="0.835"/> -->
+			<constraint name="W" perimeter="0" x="0" y="0.5"/>
+			<constraint name="E" perimeter="0" x="1" y="0.5"/>
+		</connections>
+		<background>
+			<path>
+				<move x="0" y="0"/>
+				<line x="31.9" y="19.7"/>
+				<arc large-arc-flag="0" rx="20" ry="20" sweep-flag="1" x="66.2" x-axis-rotation="0" y="19.7"/>
+				<line x="98" y="0"/>
+				<line x="98" y="60"/>
+				<line x="66.2" y="40.5"/>
+				<arc large-arc-flag="0" rx="20" ry="20" sweep-flag="1" x="31.9" x-axis-rotation="0" y="40.5"/>
+				<line x="0" y="60"/>
+				<close/>
+			</path>
+		</background>
+		<foreground>
+			<fillstroke/>
+			<path>
+				<move x="31.9" y="40.5"/>
+				<arc large-arc-flag="0" rx="20" ry="20" sweep-flag="1" x="31.9" x-axis-rotation="0" y="19.7"/>
+				<move x="66.2" y="19.7"/>
+				<arc large-arc-flag="0" rx="20" ry="20" sweep-flag="1" x="66.2" x-axis-rotation="0" y="40.5"/>
+			</path>
+			<stroke/>
+		</foreground>
+	</shape>
+	<shape aspect="variable" h="60" name="Valve" strokewidth="inherit" w="98">
+		<connections>
+			<!-- <constraint name="center" perimeter="0" x="0.5" y="0.5"/> -->
+			<constraint name="W" perimeter="0" x="0" y="0.5"/>
+			<constraint name="E" perimeter="0" x="1" y="0.5"/>
+		</connections>
+		<background>
+			<path>
+				<move x="0" y="60"/>
+				<line x="0" y="0"/>
+				<line x="98" y="60"/>
+				<line x="98" y="0"/>
+				<close/>
+			</path>
+		</background>
+		<foreground>
+			<fillstroke/>
+		</foreground>
+	</shape>
+	<shape aspect="variable" h="60" name="Diaphragm Valve" strokewidth="inherit" w="98">
+		<connections>
+			<!-- <constraint name="N" perimeter="0" x="0.5" y="0.135"/> -->
+			<!-- <constraint name="S" perimeter="0" x="0.5" y="0.5"/> -->
+			<constraint name="W" perimeter="0" x="0" y="0.5"/>
+			<constraint name="E" perimeter="0" x="1" y="0.5"/>
+		</connections>
+		<background>
+			<path>
+				<move x="0" y="60"/>
+				<line x="0" y="0"/>
+				<line x="98" y="60"/>
+				<line x="98" y="0"/>
+				<close/>
+			</path>
+		</background>
+		<foreground>
+			<fillstroke/>
+			<path>
+				<move x="29" y="18"/>
+				<arc large-arc-flag="0" rx="25" ry="25" sweep-flag="1" x="69" x-axis-rotation="0" y="18"/>
+			</path>
+			<stroke/>
+		</foreground>
+	</shape>
+	<shape aspect="variable" h="65" name="Manual Valve" strokewidth="inherit" w="98">
+		<connections>
+			<!-- <constraint name="N" perimeter="0" x="0.5" y="0"/> -->
+			<!-- <constraint name="S" perimeter="0" x="0.5" y="0.54"/> -->
+			<constraint name="W" perimeter="0" x="0" y="0.54"/>
+			<constraint name="E" perimeter="0" x="1" y="0.54"/>
+		</connections>
+		<background>
+			<path>
+				<move x="0" y="65"/>
+				<line x="0" y="5"/>
+				<line x="98" y="65"/>
+				<line x="98" y="5"/>
+				<close/>
+			</path>
+		</background>
+		<foreground>
+			<fillstroke/>
+			<path>
+				<move x="49" y="35"/>
+				<line x="49" y="0"/>
+				<line x="79" y="0"/>
+				<line x="20" y="0"/>
+			</path>
+			<stroke/>
+		</foreground>
+	</shape>
+
+
+	<shape name="Rectangular Callout" h="60" w="98" aspect="variable" strokewidth="inherit">
+		<connections>
+			<constraint x="0.5" y="0" perimeter="0" name="N"/>
+			<constraint x="0.5" y="0.715" perimeter="0" name="S"/>
+			<constraint x="0" y="0.355" perimeter="0" name="W"/>
+			<constraint x="1" y="0.355" perimeter="0" name="E"/>
+			<constraint x="0.04" y="1" perimeter="0" name="SW"/>
+		</connections>
+		<background>
+		<miterlimit limit="10"/>
+		<path>
+			<move x="15" y="43"/>
+			<line x="0" y="43"/>
+			<line x="0" y="0"/>
+			<line x="98" y="0"/>
+			<line x="98" y="43"/>
+			<close/>
+		</path>
+		</background>
+		<foreground>
+			<fillstroke/>
+		</foreground>
+	</shape>
+	<shape name="Cloud Callout" h="61.4" w="90.41" aspect="variable" strokewidth="inherit">
+		<connections>
+			<constraint x="0.5" y="0" perimeter="0" name="N"/>
+			<constraint x="0.5" y="0.74" perimeter="0" name="S"/>
+			<constraint x="0.015" y="0.4" perimeter="0" name="W"/>
+			<constraint x="0.993" y="0.4" perimeter="0" name="E"/>
+			<constraint x="0.01" y="0.995" perimeter="0" name="SW"/>
+		</connections>
+		<background>
+			<save/>
+			<linejoin join="round"/>
+			<path>
+				<move x="12.1" y="31.8"/>
+				<arc rx="8" ry="8" x-axis-rotation="0" large-arc-flag="1" sweep-flag="1" x="12.1" y="16.8"/>
+				<arc rx="12" ry="12" x-axis-rotation="0" large-arc-flag="0" sweep-flag="1" x="33.1" y="8.8"/>
+				<arc rx="14" ry="14" x-axis-rotation="0" large-arc-flag="0" sweep-flag="1" x="59.1" y="8.8"/>
+				<arc rx="12" ry="12" x-axis-rotation="0" large-arc-flag="0" sweep-flag="1" x="79.1" y="16.8"/>
+				<arc rx="8" ry="8" x-axis-rotation="0" large-arc-flag="1" sweep-flag="1" x="79.1" y="31.8"/>
+				<arc rx="12" ry="12" x-axis-rotation="0" large-arc-flag="0" sweep-flag="1" x="58.1" y="38.8"/>
+				<arc rx="14" ry="14" x-axis-rotation="0" large-arc-flag="0" sweep-flag="1" x="34.1" y="38.8"/>
+				<arc rx="10" ry="8" x-axis-rotation="0" large-arc-flag="0" sweep-flag="1" x="12.1" y="31.8"/>
+				<close/>
+			</path>
+		</background>
+		<foreground>
+			<fillstroke/>
+		</foreground>
+	</shape>
+</shapes>

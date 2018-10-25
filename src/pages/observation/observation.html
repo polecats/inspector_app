@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>Observations</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <!-- Slider list -->
+    <ion-item-sliding #slidingItem *ngFor="let obs of _observationList">
+      <ion-item>
+        <h2>ID: {{obs.identifier}} - LOC: {{obs.location}}</h2>
+      </ion-item>        
+      <!-- Slider list option -->
+      <ion-item-options>
+        <button ion-button color="secondary" (click)="goEditObservation(slidingItem, obs)">
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button>
+        <button ion-button color="danger" (click)="goDeleteObservation(slidingItem, obs)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>          
+      </ion-item-options>
+    </ion-item-sliding>    
+    <ion-list-header text-center [hidden]="getObservationCount() > 0">
+      No Observation Found.
+    </ion-list-header>    
+  </ion-list>
+</ion-content>
+<ion-footer no-padding style="margin:0rem 0rem!Important;">
+  <div text-center padding>
+    <button ion-button icon-left round color="secondary" (click)="addObservation()" type="submit">
+        <ion-icon name="add-circle"></ion-icon>
+        Add Observation
+    </button>
+  </div>      
+</ion-footer>

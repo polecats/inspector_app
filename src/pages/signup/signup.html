@@ -1,0 +1,47 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>Signup</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="login-page">
+	<div padding-top text-center>
+		<img [src]="_photo | safeHtml" class="custom-avatar" (click)="onAddPicture()">
+		<form #signupForm="ngForm" novalidate>
+			<ion-list>
+				<ion-item>
+					<ion-label floating color="primary">Username</ion-label>
+					<ion-input [(ngModel)]="_profile.username" name="username" type="text" required></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating color="primary">Password</ion-label>
+					<ion-input [(ngModel)]="_profile.password" name="password" type="password" required></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating color="primary">Name</ion-label>
+					<ion-input [(ngModel)]="_profile.name" name="name" type="text" required></ion-input>
+				</ion-item>		
+				<ion-item>
+					<ion-label floating color="primary">Position</ion-label>
+					<ion-input [(ngModel)]="_profile.position" (ionFocus)="onSelectDropdown(0)" name="position" type="text" required></ion-input>
+				</ion-item>		
+				<ion-item>
+					<ion-label floating color="primary">Company</ion-label>
+					<ion-input [(ngModel)]="_profile.company" (ionFocus)="onSelectDropdown(1)" name="company" type="text" required></ion-input>
+				</ion-item>									
+			</ion-list>
+		</form>
+	</div>
+</ion-content>
+<ion-footer no-padding style="margin:0rem 0rem!Important;">
+	<div text-center padding>
+		<button ion-button icon-left block (click)="onSignup(signupForm)" type="submit">
+			<ion-icon name="person-add"></ion-icon>
+			Create Account
+		</button>
+		<!-- <button ion-button color="google" *ngIf="_isCompleted" (click)="onCompleted()" block>Finish</button> -->
+	</div>
+</ion-footer>

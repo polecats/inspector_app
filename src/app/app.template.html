@@ -1,0 +1,100 @@
+<ion-split-pane>
+  <!-- logged out menu [Left Pane] -->
+  <ion-menu id="loggedOutMenu" [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="outer-content">
+      <ion-list>
+        <ion-list-header>
+          Account
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- logged in menu [Left Pane] -->
+  <ion-menu id="loggedInMenu" [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="outer-content">
+      <ion-card text-center class="hide-card">
+        <img [src]="_userProfile.photo | safeHtml" class="custom-avatar">
+        <h2>{{_userProfile.name}}</h2>
+        <p>{{_userProfile.position}}</p>
+        <p>{{_userProfile.company}}</p>
+      </ion-card>
+
+      <ion-list>
+        <button ion-item menuClose (click)="listInspections()">
+          <ion-icon item-start name="list"></ion-icon>
+          Inspections
+        </button>
+      </ion-list>
+      <!-- Account -->
+      <ion-list>
+        <ion-list-header>
+          Account
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+      <ion-list>
+        <ion-list-header>
+          Help
+        </ion-list-header>
+        <button ion-item menuClose (click)="openPage(appPages[0])">
+          <ion-icon item-start name="help"></ion-icon>
+          Support
+        </button>            
+        <button ion-item menuClose (click)="openPage(appPages[1])">
+          <ion-icon item-start name="information-circle"></ion-icon>
+          About
+        </button>        
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- inspection reporting mode menu [Left Pane] -->
+  <ion-menu id="inspectionMenu" [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="outer-content">
+      <ion-list>
+        <ion-list-header>
+          Inspection
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of inspectionPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+      <ion-list>
+        <ion-list-header>
+          Account
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- main navigation [Right Pane]-->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>
+</ion-split-pane>
